@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncy transition</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+
+        }
+        h2{
+            font-size:3vw;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            color:orange;
+        }
+        body{
+            min-height:100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .wrapper{
+            height:400px;
+            width:800px;
+            border-radius:5px;
+            border:10px solid orange;
+            position: relative;
+        }
+        .ball-pad{
+            position: absolute;
+            bottom:20px;
+            left:5%;
+            height:12px;
+            width:90%;
+            background-color: #444;
+            border-radius:5px;
+        }
+        .ball{
+            height:80px;
+            width:80px;
+            border-radius: 50%;
+            background-color: #444;
+            position:absolute;
+            bottom:34px;
+            left:45px;
+            transition:2s ease;
+            animation:ball-animate 2s ease infinite alternate;
+        }
+        .ball::before{
+            height:80px;
+            width:50%;
+            position: absolute;
+            content:"";
+            background-color: red;
+            border-radius:40px 0 0 40px;
+        }
+        @keyframes ball-animate{
+            from{
+             transform: translateX(0px);
+            }
+            to{
+             transform: translateX(600px) rotate(2turn);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Simple animation</h2>
+    <div class="wrapper">
+            <div class="ball"></div>
+            <div class="ball-pad"></div>
+    </div>
+</body>
+</html>
